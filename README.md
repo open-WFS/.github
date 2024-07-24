@@ -14,16 +14,29 @@ Open Wave Field Synthesis (OpenWFS) is an open-source system for [Wave Field Syn
   - one or more OpenWFS modules, built following the schematics and firmware linked above
   - an AVB-compliant network switch, such as a [Netgear GS7xxT](https://support.biamp.com/Tesira/AVB/Installing_an_AVB_license_on_Netgear_GS7xxT_switches) with AVB firmware (cheapest but requires some manual config), [MOTU AVB Switch](https://motu.com/en-us/products/avb/avb-switch/) (mid-priced but only has 6 ports, i.e. 160 channels), or a [Netgear Pro AV switch](https://www.netgear.com/uk/business/solutions/av-over-ip/) (the best solution but most expensive).
   - an AVB audio interface, such as an [RME Digiface](https://rme-audio.de/digiface-usb.html) or [Ultralite AVB](https://motu.com/products/avb/ultralite-avb), or a computer that supports AVB natively such as an Apple Silicon Mac Mini / Mac Studio
+  - a ethernet cable (CAT5/CAT6) for each module, and an additional cable to connect the AVB host computer/interface to the audio network
+
+You will also need the following software:
+
+ - Reaper, to run the default soundcheck sessions. Reaper can be used as a free download.
+ - A spatialiser system. This can be one of:
+   - Spat (recommended): requires Max/MSP
+   - [OpenWFS Python panner](https://github.com/open-WFS/open-WFS-spatialiser/): requires Python and Node
+   - WFSCollider: not yet tested
 
 ## Setup
 
 This guide will assume you are connecting 4 OpenWFS modules, for a total of 128 drivers.
 
-### 1. Connect the AVB interface
+### 1. Connect the AVB interface and switch
 
-Connect the AVB interface (if using) to your computer via USB, and connect it to the AVB switch via a CAT6 cable.
+Power on the computer and AVB switch.
 
-### 2. Connect the AVB switch
+If you are using an AVB interface, connect it to your computer via USB, and connect it to the AVB switch via a standard ethernet cable.
+
+If you are connecting directly to a Mac with integrated AVB support, connect your Mac to the AVB switch via a standard ethernet cable.
+
+### 2. Connect the AVB modules
 
 Connect each of the OpenWFS modules to the AVB switch, and plug them in to power via their 24V barrel connectors. The green LED on each OpenWFS module should illuminate.
 
@@ -31,7 +44,7 @@ The modules will now advertise their presence, and will become visible to the AV
 
 ### 3. Configure the AVB streams
 
-Each AVB stream carries 8 channels of audio, and must be routed to the respective OpenWFS module. As each module plays 32 channels, this means that four streams is routed to each module.
+Each AVB stream carries 8 channels of audio, and must be routed to the respective OpenWFS module. As each module plays 32 channels, this means that four streams will be routed to each module. Streams are numbered consecutively.
 
 #### Using native macOS AVB config
 
@@ -41,6 +54,8 @@ You should see 4 `openWFS` AVB devices appear in the browser.
 
 For each of the devices, configure the input streams. *Add specific detail on this.*
 
+Create an aggregate device that collates all of the input streams.
+
 #### Using an RME Digiface or other RME AVB device
 
 Open **RME AVB Controller**. You should see an entry for the Digiface, followed by 4 `openWFS` AVB devices. 
@@ -48,8 +63,29 @@ Open **RME AVB Controller**. You should see an entry for the Digiface, followed 
 For each of the devices, configure the input streams with four consecutive values. For example:
 
  - The first `openWFS` device in the list should be configured to accept streams 1, 2, 3, 4
-- The second `openWFS` device in the list should be configured to accept streams 5, 6, 7, 8
-- The third `openWFS` device in the list should be configured to accept streams 9, 10, 11, 12
-- The fourth `openWFS` device in the list should be configured to accept streams 13, 14, 15, 16
+- The second `openWFS` device should be configured to accept streams 5, 6, 7, 8
+- The third `openWFS` device should be configured to accept streams 9, 10, 11, 12
+- The fourth `openWFS` device should be configured to accept streams 13, 14, 15, 16
 
-###. 4. Run a sound check to confirm that the stream configuration is successful
+### 4. Run a sound check to confirm that the stream configuration is successful
+
+This can be done with a Reaper session or the [OpenWFS Spatialiser](https://github.com/open-WFS/open-WFS-spatialiser/) .
+
+#### Using Reaper
+
+ - Open the Reaper test session (link).
+ - In Reaper, open preferences and select the OpenWFS output device
+
+### 5. Configure the audio loopback device
+
+ - Install BlackHole 64ch
+
+You can also use [Loopback](https://rogueamoeba.com/loopback/).
+
+### 6. Configure the spatial panner
+
+This will assume using Spat.
+
+### 7. Configure an audio playback source
+
+### 8. Control of spatialisation
