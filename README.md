@@ -84,8 +84,4 @@ You can also use [Loopback](https://rogueamoeba.com/loopback/).
 
 ### 6. Configure the spatial panner
 
-This will assume using Spat.
-
-### 7. Configure an audio playback source
-
-### 8. Control of spatialisation
+Now, proceed to setting up the WFS spatialiser and control system following the docs in the [open-WFS-spatialiser](https://github.com/open-WFS/open-WFS-spatialiser/) repo.
