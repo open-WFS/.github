@@ -2,7 +2,9 @@
 
 Open Wave Field Synthesis (OpenWFS) is an open-source system for [Wave Field Synthesis](https://en.wikipedia.org/wiki/Wave_field_synthesis), acoustic beamforming, and other spatial rendering techniques. An OpenWFS system comprises of multiple playback modules, each of which is a 1m-long unit comprising 32 full-range drivers, connected over the [AVB](https://en.wikipedia.org/wiki/Audio_Video_Bridging) audio networking protocol.
 
- - [Hardware schematics](https://github.com/open-WFS/open-WFS-hw) and [firmware](https://github.com/open-WFS/open-WFS-fw) to built an audio playback module, comprising of 32 full-range drivers
+The OpenWFS system comprises:
+
+ - [Hardware schematics](https://github.com/open-WFS/open-WFS-hw) and [firmware](https://github.com/open-WFS/open-WFS-fw) to built an audio playback module, comprising of 32 full-range drivers (pending publication)
  - A [software spatialiser](https://github.com/open-WFS/open-WFS-spatialiser) that receives mono audio inputs over an audio loopback interface, and distributes them appropriately over the OpenWFS system
 
  The hardware system can also be used as an N-channel audio interface, with each driver addressable separately, for protyping and evaluation of arbitrary spatial panning algorithms.
@@ -20,9 +22,14 @@ You will also need the following software:
 
  - Reaper, to run the default soundcheck sessions. Reaper can be used as a free download.
  - A spatialiser system. This can be one of:
-   - Spat (recommended): requires Max/MSP
-   - [OpenWFS Python panner](https://github.com/open-WFS/open-WFS-spatialiser/): requires Python and Node
-   - WFSCollider: not yet tested
+   - [Spat](https://forum.ircam.fr/projects/detail/spat/) (recommended): a mature, sophisticated and configurable spatial panning framework from IRCAM. Requires Max/MSP.
+   - [OpenWFS Python panner](https://github.com/open-WFS/open-WFS-spatialiser/): a novel, open-source WFS/beamforming spatialiser created for this project. Requires Python and Node. Not yet recommended as Spat is more fully-featured and perceptually superior.
+   - [WFSCollider](https://sourceforge.net/projects/wfscollider/): An open-source WFS framework for SuperCollider. Not yet evaluated with OpenWFS.
+
+The [open-WFS-spatialiser](https://github.com/open-WFS/open-WFS-spatialiser/) repo also includes some utilities for working with OpenWFS, including:
+
+ - a soundcheck procedure
+ - a utility to export OpenWFS topology config files for Spat
 
 ## Setup
 
@@ -67,21 +74,7 @@ For each of the devices, configure the input streams with four consecutive value
 - The third `openWFS` device should be configured to accept streams 9, 10, 11, 12
 - The fourth `openWFS` device should be configured to accept streams 13, 14, 15, 16
 
-### 4. Run a sound check to confirm that the stream configuration is successful
+### 4. Configure the software systems and spatial panner
 
-This can be done with a Reaper session or the [OpenWFS Spatialiser](https://github.com/open-WFS/open-WFS-spatialiser/) .
+You're now ready to start setting up the WFS software systems and spatialiser following the docs in the [open-WFS-spatialiser](https://github.com/open-WFS/open-WFS-spatialiser/) repo.
 
-#### Using Reaper
-
- - Open the Reaper test session (link).
- - In Reaper, open preferences and select the OpenWFS output device
-
-### 5. Configure the audio loopback device
-
- - Install BlackHole 64ch
-
-You can also use [Loopback](https://rogueamoeba.com/loopback/).
-
-### 6. Configure the spatial panner
-
-Now, proceed to setting up the WFS spatialiser and control system following the docs in the [open-WFS-spatialiser](https://github.com/open-WFS/open-WFS-spatialiser/) repo.
