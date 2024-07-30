@@ -55,13 +55,12 @@ Each AVB stream carries 8 channels of audio, and must be routed to the respectiv
 
 #### Using native macOS AVB config
 
-If you are connecting an Apple Mac directly to the AVB network, open **Audio MIDI Setup** and select **Window > Network Device Browser**.
+If you are connecting an Apple Mac directly to the AVB network:
 
-You should see 4 `openWFS` AVB devices appear in the browser.
-
-For each of the devices, configure the input streams. *Add specific detail on this.*
-
-Create an aggregate device that collates all of the input streams.
+ - Open **Audio MIDI Setup** and select **Window > Network Device Browser**.
+ - You should see 4 `openWFS` AVB devices appear in the browser.
+ - For each of the devices, configure the input streams, assigning four streams (each carrying eight channels) to each module consecutively
+ - Finally, create an aggregate device that collates all of the input streams.
 
 #### Using an RME Digiface or other RME AVB device
 
