@@ -15,7 +15,7 @@ The OpenWFS system comprises:
 
   - one or more OpenWFS modules, built following the schematics and firmware linked above
   - an AVB-compliant network switch, such as a [Netgear GS7xxT](https://support.biamp.com/Tesira/AVB/Installing_an_AVB_license_on_Netgear_GS7xxT_switches) with AVB firmware (cheapest but requires some manual config), [MOTU AVB Switch](https://motu.com/en-us/products/avb/avb-switch/) (mid-priced but only has 6 ports, i.e. 160 channels), or a [Netgear Pro AV switch](https://www.netgear.com/uk/business/solutions/av-over-ip/) (the best solution but most expensive).
-  - an AVB audio interface, such as an [RME Digiface](https://rme-audio.de/digiface-usb.html) or [Ultralite AVB](https://motu.com/products/avb/ultralite-avb), or a computer that supports AVB natively such as an Apple Silicon Mac Mini / Mac Studio
+  - an AVB audio interface, such as an [RME Digiface](https://rme-audio.de/digiface-avb.html) or [Ultralite AVB](https://motu.com/products/avb/ultralite-avb), or a computer that supports AVB natively such as an Apple Silicon Mac Mini / Mac Studio
   - a ethernet cable (CAT5/CAT6) for each module, and an additional cable to connect the AVB host computer/interface to the audio network
 
 You will also need the following software:
