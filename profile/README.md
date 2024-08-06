@@ -5,7 +5,7 @@ Open Wave Field Synthesis (OpenWFS) is an open-source system for [Wave Field Syn
 The OpenWFS system comprises:
 
  - [Hardware schematics](https://github.com/open-WFS/open-WFS-hw) and [firmware](https://github.com/open-WFS/open-WFS-fw) to built an audio playback module, comprising of 32 full-range drivers (pending publication)
- - A [software spatialiser](https://github.com/open-WFS/open-WFS-spatialiser) that receives mono audio inputs over an audio loopback interface, and distributes them appropriately over the OpenWFS system
+ - [Software spatialiser and utilities](https://github.com/open-WFS/open-WFS-software) that receives mono audio inputs over an audio loopback interface, and distributes them appropriately over the OpenWFS system
 
  The hardware system can also be used as an N-channel audio interface, with each driver addressable separately, for protyping and evaluation of arbitrary spatial panning algorithms.
 
@@ -23,10 +23,10 @@ You will also need the following software:
  - Reaper, to run the default soundcheck sessions. Reaper can be used as a free download.
  - A spatialiser system. This can be one of:
    - [Spat](https://forum.ircam.fr/projects/detail/spat/) (recommended): a mature, sophisticated and configurable spatial panning framework from IRCAM. Requires Max/MSP.
-   - [OpenWFS Python panner](https://github.com/open-WFS/open-WFS-spatialiser/): a novel, open-source WFS/beamforming spatialiser created for this project. Requires Python and Node. Not yet recommended as Spat is more fully-featured and perceptually superior.
+   - [OpenWFS Python panner](https://github.com/open-WFS/open-WFS-software/): a novel, open-source WFS/beamforming spatialiser created for this project. Requires Python and Node. Not yet recommended as Spat is more fully-featured and perceptually superior.
    - [WFSCollider](https://sourceforge.net/projects/wfscollider/): An open-source WFS framework for SuperCollider. Not yet evaluated with OpenWFS.
 
-The [open-WFS-spatialiser](https://github.com/open-WFS/open-WFS-spatialiser/) repo also includes some utilities for working with OpenWFS, including:
+The [open-WFS-software](https://github.com/open-WFS/open-WFS-software/) repo also includes some utilities for working with OpenWFS, including:
 
  - a soundcheck procedure
  - a utility to export OpenWFS topology config files for Spat
@@ -75,5 +75,5 @@ For each of the devices, configure the input streams with four consecutive value
 
 ### 4. Configure the software systems and spatial panner
 
-You're now ready to start setting up the WFS software systems and spatialiser following the docs in the [open-WFS-spatialiser](https://github.com/open-WFS/open-WFS-spatialiser/) repo.
+You're now ready to start setting up the WFS software systems and spatialiser following the docs in the [open-WFS-software](https://github.com/open-WFS/open-WFS-software/) repo.
 
