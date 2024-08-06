@@ -39,7 +39,7 @@ This guide will assume you are connecting 4 OpenWFS modules, for a total of 128 
 
 Power on the computer and AVB switch.
 
-Note that you may need to configure the switch for AVB ([Instructions for Netgear M4250](https://support.biamp.com/Tesira/AVB/Netgear_M4250_-_Enabling_AVB_using_the_main_user_interface))
+Note that you may need to configure the switch for AVB ([Instructions for Netgear M4250](https://support.biamp.com/Tesira/AVB/Netgear_M4250_-_Enabling_AVB_using_the_AV_user_interface))
 
 If you are using an AVB interface, connect it to your computer via USB, and connect it to the AVB switch via a standard ethernet cable.
 
