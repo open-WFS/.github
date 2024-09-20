@@ -76,6 +76,16 @@ For each of the devices, configure the input streams with four consecutive value
 - The third `openWFS` device should be configured to accept streams 9, 10, 11, 12
 - The fourth `openWFS` device should be configured to accept streams 13, 14, 15, 16
 
+#### Ensuring that the stream ordering is consecutive
+
+Whether using native macOS AVB or RME, it makes life easier to ensure that the boxes are physically ordered with sequential channel numbers -- for example, in the case of a linear row of four, such that the left-most module is channels 1..4, the subsequent module is 5..8, etc. However, it is not possibly a priori to identify which physical module corresponds to which virtual `openWFS` device in the AVB manager.
+
+To address this, once the AVB modules have been set up for the first time, we recommend opening and playing the [Reaper Broadcast 1-8](https://github.com/open-WFS/open-WFS-examples) session, which will play the numbers 1 through 8 throught sequential sets of 32 channels -- that is, each module should be heard reading out a single number.
+
+When the set is playing, you can then dynamically re-order the routing in the AVB controller (as described in the previous section), shuffling the arrangement around until the left-most module corresponds to "one", then "two", etc.
+
+Having done this, you can later use the default spatial configurations without having to specify the coordinates of each module.
+
 ### 4. Configure the software systems and spatial panner
 
 You're now ready to start setting up the WFS software systems and spatialiser following the docs in the [open-WFS-software](https://github.com/open-WFS/open-WFS-software/) repo.
